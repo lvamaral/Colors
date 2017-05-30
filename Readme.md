@@ -35,7 +35,7 @@ In addition to the webpack entry file, there will be three scripts involved in t
 
 `palette.js`: this script will be responsible for generating color palettes for the game. It will either connect to an existing online palette generator, or have logic for generating custom palettes.
 
-`colors.js`: this script will handle the logic behind the scenes. A "unit" object will hold a 'color' and a 2D array of other units. It will be responsible for doing neighbor checks on adjacent cells, and changing colors every round, and updating the array appropriately.
+`colors.js`: this script will handle the logic behind the scenes. A "unit" object will hold a 'color' and a 2D array of other units. It will be responsible for doing checks on adjacent cells, changing colors every round, and updating the array appropriately.
 
 ### Implementation Timeline
 
