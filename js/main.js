@@ -1,10 +1,9 @@
 import View from './view';
 import Game from './game';
-
-window.level = 0
+import Colors from './colors';
 
 $( () => {
-  const rootEl = $('#grid');
-  const game = new Game(level);
-  new View(game, rootEl);
+  var level = 1
+  const view = new View(level);
+  const game = new Game(level, view)
 });
