@@ -30,7 +30,7 @@ The first step was constructing a grid that made sense for the current screen si
 
 The core functionality consisted of the function that took care of converting same color adjacent squares. This was achieved using recursion, and keeping track of what had already been checked for color conversion.
 
-![demo](docs/codesnippetcolor.png =300x200)
+<img src="docs/codesnippetcolor.png" alt="DEMO" width="300" height="250">
 Code snipped showing the recursive coloring function.
 
 
