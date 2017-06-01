@@ -33,10 +33,22 @@ const COLORS =
   "56a3a6-9cfc97-484538-d4eac8-c0d8e0",
   "904c77-e49ab0-ecb8a5-eccfc3-957d95",
   "04151f-183a37-efd6ac-c44900-432534",
-  "abd6d3-e8cab0-d9cee2-aec6cf-eddfd0"
+  "abd6d3-e8cab0-d9cee2-aec6cf-eddfd0",
+  "56a3a6-9cfc97-484538-d4eac8-c0d8e0",
+  "074f57-077187-74a57f-9ece9a-e4c5af",
+  "faf3dd-c8d5b9-8fc0a9-68b0ab-696d7d",
+  "51e5ff-440381-ec368d-ffa5a5-ffd6c0",
+  "fab3a9-c6ad94-7fb285-463239-ed6b86",
+  "0a090c-f0edee-07393c-2c666e-90ddf0",
+  "21295c-1b3b6f-065a82-1c7293-9eb3c2",
+  "bdd9bf-2e4052-ffc857-ffffff-412234",
+  "ffff82-f5f7dc-b5d99c-0f0326-e65f5c",
+  "1e152a-4e6766-5ab1bb-a5c882-f7dd72",
+  "6e44ff-b892ff-ffc2e2-ff90b3-ef7a85",
+  "ffffff-ffcad4-b0d0d3-c08497-f7af9d"
 ]
 
 const COLOR = COLORS[Math.floor(Math.random()*COLORS.length)].split("-").map((el)=> "#"+el)
 
 
-export default COLOR;
+export default COLORS;

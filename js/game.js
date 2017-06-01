@@ -20,6 +20,9 @@ class Game {
       this.selectStarting()
     } else if (this.level === 2) {
       this.endTut();
+      this.gjMsg(this.level);
+    } else {
+      this.gjMsg(this.level);
     }
 
     this.setStartingCounters(this.level);
@@ -33,6 +36,19 @@ class Game {
 
   endTut(){
     $(".tooltiptext").css("visibility", "hidden")
+  }
+
+  gjMsg(lvl){
+    const messages = ["Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!",
+    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!",
+    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!"];
+    $("#message").text(messages[lvl]).fadeOut(1000)
   }
 
   setStartingCounters(level){
@@ -78,10 +94,15 @@ class Game {
 
   clickControls(){
     $(".color-choice").click(this.pickColor.bind(this))
+    $("#info").click(() => $("#tutorial").toggle())
+
   }
 
   pickColor(e){
     e.preventDefault;
+    if (this.level === 1) {
+      $(".tooltiptext").hide();
+    }
     var pickedColor = $(e.target).data("color");
     this.moves += 1;
     $("#move-display").text(`Moves: ${this.moves}`);

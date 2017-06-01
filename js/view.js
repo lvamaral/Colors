@@ -1,15 +1,15 @@
-const Color = require('./colors');
+const COLORS = require('./colors');
 
 class View {
   constructor(level){
+    console.log(COLORS);
     this.level = level + 1;
-    this.colors = Color.default;
+    this.colors = COLORS.default[Math.floor(Math.random()*COLORS.default.length)].split("-").map((el)=> "#"+el)
     this.grid = [];
     this.cols = 0;
     this.rows = 0;
     this.makeGrid();
   }
-
 
   makeGrid(){
     var h = ($('#grid').height())

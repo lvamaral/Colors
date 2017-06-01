@@ -107,13 +107,25 @@ const COLORS =
   "56a3a6-9cfc97-484538-d4eac8-c0d8e0",
   "904c77-e49ab0-ecb8a5-eccfc3-957d95",
   "04151f-183a37-efd6ac-c44900-432534",
-  "abd6d3-e8cab0-d9cee2-aec6cf-eddfd0"
+  "abd6d3-e8cab0-d9cee2-aec6cf-eddfd0",
+  "56a3a6-9cfc97-484538-d4eac8-c0d8e0",
+  "074f57-077187-74a57f-9ece9a-e4c5af",
+  "faf3dd-c8d5b9-8fc0a9-68b0ab-696d7d",
+  "51e5ff-440381-ec368d-ffa5a5-ffd6c0",
+  "fab3a9-c6ad94-7fb285-463239-ed6b86",
+  "0a090c-f0edee-07393c-2c666e-90ddf0",
+  "21295c-1b3b6f-065a82-1c7293-9eb3c2",
+  "bdd9bf-2e4052-ffc857-ffffff-412234",
+  "ffff82-f5f7dc-b5d99c-0f0326-e65f5c",
+  "1e152a-4e6766-5ab1bb-a5c882-f7dd72",
+  "6e44ff-b892ff-ffc2e2-ff90b3-ef7a85",
+  "ffffff-ffcad4-b0d0d3-c08497-f7af9d"
 ]
 
 const COLOR = COLORS[Math.floor(Math.random()*COLORS.length)].split("-").map((el)=> "#"+el)
 
 
-/* harmony default export */ __webpack_exports__["default"] = (COLOR);
+/* harmony default export */ __webpack_exports__["default"] = (COLORS);
 
 
 /***/ }),
@@ -146,6 +158,9 @@ class Game {
       this.selectStarting()
     } else if (this.level === 2) {
       this.endTut();
+      this.gjMsg(this.level);
+    } else {
+      this.gjMsg(this.level);
     }
 
     this.setStartingCounters(this.level);
@@ -159,6 +174,19 @@ class Game {
 
   endTut(){
     $(".tooltiptext").css("visibility", "hidden")
+  }
+
+  gjMsg(lvl){
+    const messages = ["Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!",
+    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!",
+    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!"];
+    $("#message").text(messages[lvl]).fadeOut(1000)
   }
 
   setStartingCounters(level){
@@ -204,10 +232,15 @@ class Game {
 
   clickControls(){
     $(".color-choice").click(this.pickColor.bind(this))
+    $("#info").click(() => $("#tutorial").toggle())
+
   }
 
   pickColor(e){
     e.preventDefault;
+    if (this.level === 1) {
+      $(".tooltiptext").hide();
+    }
     var pickedColor = $(e.target).data("color");
     this.moves += 1;
     $("#move-display").text(`Moves: ${this.moves}`);
@@ -257,18 +290,18 @@ class Game {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-const Color = __webpack_require__(0);
+const COLORS = __webpack_require__(0);
 
 class View {
   constructor(level){
+    console.log(COLORS);
     this.level = level + 1;
-    this.colors = Color.default;
+    this.colors = COLORS.default[Math.floor(Math.random()*COLORS.default.length)].split("-").map((el)=> "#"+el)
     this.grid = [];
     this.cols = 0;
     this.rows = 0;
     this.makeGrid();
   }
-
 
   makeGrid(){
     var h = ($('#grid').height())
@@ -349,10 +382,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 $( () => {
-  // console.log($.cookie("level"));
-  // // if ($.cookie("level") === undefined) {
-  // //   var level = 2
-  // // }
   let level = 1;
 
   const view = new __WEBPACK_IMPORTED_MODULE_0__view__["a" /* default */](level);
