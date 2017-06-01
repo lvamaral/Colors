@@ -233,7 +233,7 @@ class Game {
     this.moves = 0;
     this.colorHash = this.constructHash();
     this.called = [];
-    this.maxMoves = this.level + 9;
+    this.maxMoves = this.level + 10;
 
 
     if (this.level === 1) {
@@ -300,7 +300,6 @@ class Game {
     console.log(this.level);
     this.view = null;
     this.moves = 0;
-
     delete this.view;
     this.Level.game = null
     delete this.Level.game
@@ -308,11 +307,6 @@ class Game {
     delete this.Level
     $(".color-choice").unbind("click")
     new __WEBPACK_IMPORTED_MODULE_2__level__["a" /* default */](this.level)
-    // localStorage.setItem("level", this.level);
-    // location.reload();
-    // const view = new View(this.level);
-    // const game = new Game(this.level, view);
-
   }
 
   clickControls(){
@@ -357,22 +351,21 @@ class Game {
   }
 
   getAllPos(s_pos, pickedColor){
-    let temp = s_pos.split(",").map(el => parseInt(el))
+    let temp = s_pos.split(",").map(el => parseInt(el));
     let potential = [];
     potential.push([temp[0]-1, temp[1]].join());
     potential.push([temp[0], temp[1]+1].join());
     potential.push([temp[0], temp[1]-1].join());
     potential.push([temp[0]+1, temp[1]].join());
     Object.keys(this.colorHash).forEach( (pos) => {
-      if (potential.includes(pos) && this.colorHash[pos] === this.colorHash[s_pos] && !this.called.includes(pos)) {
+      if (potential.includes(pos)
+      && this.colorHash[pos] === this.colorHash[s_pos]
+      && !this.called.includes(pos)) {
         this.called.push(pos)
         this.getAllPos(pos, pickedColor)
-      }
-    })
-    this.colorOne(s_pos,pickedColor)
-
-
-    // this.Level.checkForWin();
+      };
+    });
+    this.colorOne(s_pos,pickedColor);
     this.isWon();
   }
 
