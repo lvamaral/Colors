@@ -27,13 +27,16 @@ class View {
 
   makeSquares(square_y, cols, rows) {
     const page_grid = $("#grid")
+    let index = 0
     for (var i = 0; i < rows; i++) {
       var row = $("<div class='row'></div>")
       for (var j = 0; j < cols; j++) {
         let pos = [i,j]
         let square = $(`<div class="cell" style="height: ${square_y}px;"></div>`)
-        // square.data("pos", pos)
+        square.data("pos", pos)
         square.attr('id', pos)
+        square.data("index", index)
+        index += 1
         this.grid.push(pos)
         row.append(square)
       }
