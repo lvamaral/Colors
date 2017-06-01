@@ -9,6 +9,25 @@
     <link rel="stylesheet" href="css/reset.css">
   </head>
   <body>
+      <div id="modal-tutorial">
+        <div id="tutorial">
+          <span class="close">&times;</span>
+          <h3>How to play Colors?</h3>
+          <img src="tutorial.gif" alt="[TUTORIAL]">
+          <p>The rules are simple:</p>
+          <p>I. Starting with the top-left square, you change the color of squares to match the surrounding squares.</p>
+          <p>II. You win when the entire screen is a single color.</p>
+          <p>III. You lose if you run out of moves.</p>
+        </div>
+     </div>
+
+     <div id="modal-lose">
+       <div id="lose-message">
+         <h3>You are out of moves!</h3>
+         <p>Click anywhere to restart</p>
+       </div>
+    </div>
+
     <div id="git-info">
       <a href="https://github.com/lvamaral/Colors" target="_none"><i class="fa fa-github" aria-hidden="true"></i></a>
     </div>
@@ -20,20 +39,10 @@
       <div id="header">
         <div id="level" class="counters"></div>
         <div><h1>Colors</h1></div>
-        <div id="move-display" class="counters"></div>
+        <div id="move-display" class="counters">Moves: <span id="danger-display"><span id="moves">0</span> / <span id="max-moves">0</span></span></div>
       </div>
     </header>
 
-    <div id="modal-tutorial">
-      <div id="tutorial">
-        <h3>Welcome to <span>Colors</span></h3>
-        <img src="tutorial.gif" alt="[TUTORIAL]">
-        <p>The rules are simple:</p>
-        <p>I. Starting with the top-left square, you change the color of squares to match the surrounding squares.</p>
-        <p>II. You win when the entire screen is a single color.</p>
-        <p>III. You lose if you run out of moves.</p>
-      </div>
-   </div>
     <section id="grid">
 
     </section>

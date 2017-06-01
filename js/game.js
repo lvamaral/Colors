@@ -1,19 +1,18 @@
 import View from './view';
-import {includes, isEqual} from 'lodash'
-// var includes = require('lodash.includes');
+import {includes, isEqual} from 'lodash';
+import Level from './level';
 
 class Game {
-  constructor(level, view){
+  constructor(Level, view){
+    this.Level = Level;
+    this.level = Level.level;
     this.view = view;
-    this.colors = view.colors
-    this.grid = view.grid
-    this.level = level;
+    this.colors = view.colors;
     this.interval = "";
-    this.rows = $(".row").length
-    this.cols = $(".cell").length/this.rows
-    this.moves = 0
+    this.moves = 0;
     this.colorHash = this.constructHash();
     this.called = [];
+    this.maxMoves = this.level + 9;
 
 
     if (this.level === 1) {
@@ -24,36 +23,30 @@ class Game {
     } else {
       this.gjMsg(this.level);
     }
-
+    console.log(this);
     this.setStartingCounters(this.level);
     this.clickControls();
   }
 
   selectStarting(){
-    // var interval = setInterval(function(){$(".cell").first().toggleClass("selected")}, 750)
-    $(".tooltiptext").css("visibility", "visible")
+    $(".tooltiptext").css("visibility", "visible");
+    this.interval = window.setInterval(function(){$(".color-choice").toggleClass("color-choice-selected")}, 750);
   }
 
   endTut(){
-    $(".tooltiptext").css("visibility", "hidden")
-  }
-
-  gjMsg(lvl){
-    const messages = ["Good job!", "Great!", "Nice!", "Wow!", "You da best!",
-    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
-    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!",
-    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
-    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
-    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!",
-    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
-    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
-    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!"];
-    $("#message").text(messages[lvl]).fadeOut(1000)
+    $(".tooltiptext").css("visibility", "hidden");
   }
 
   setStartingCounters(level){
     $("#level").text(`Level: ${level}`);
-    $("#move-display").text(`Moves: ${this.moves}`);
+    $("#moves").text(`${this.moves}`);
+    $("#max-moves").text(`${this.maxMoves}`);
+    if (this.moves >= this.maxMoves-3) {
+
+      $("#danger-display").addClass("danger")
+    } else {
+      $("#danger-display").removeClass("danger")
+    }
   }
 
   constructHash(){
@@ -62,7 +55,6 @@ class Game {
       let cell = $(el)
       colorHash[cell.data("pos")] = cell.data("color")
       })
-
       return colorHash;
   }
 
@@ -72,31 +64,55 @@ class Game {
       colorsPresent.add($(el).data("color"))
       })
       if (colorsPresent.size === 1) {
-        console.log("WON!");
         this.restartGame();
-        return true;
       } else {
         return false;
       }
   }
 
   restartGame(){
-    $(".row").remove();
     $(".cell").remove();
+    $(".row").remove();
     this.called = [];
     this.colorHash = {};
     this.level += 1;
+    console.log(this.level);
     this.view = null;
+    this.moves = 0;
+
     delete this.view;
-    const view = new View(this.level);
-    const game = new Game(this.level, view);
+    this.Level.game = null
+    delete this.Level.game
+    this.Level = null
+    delete this.Level
+    $(".color-choice").unbind("click")
+    new Level(this.level)
+    // localStorage.setItem("level", this.level);
+    // location.reload();
+    // const view = new View(this.level);
+    // const game = new Game(this.level, view);
+
   }
 
   clickControls(){
     $(".color-choice").click(this.pickColor.bind(this))
-    $("#info").click(() => $("#tutorial").toggle())
-
+    $("#info").click(() => this.tutorialModal())
   }
+
+  tutorialModal(){
+    $("#modal-tutorial").show();
+    $("#modal-tutorial").click(() => {
+      $("#modal-tutorial").hide();
+    })
+  }
+
+  loseMessage(){
+    $("#modal-lose").show();
+    $("#modal-lose").click(() => {
+      location.reload();
+    })
+  }
+
 
   pickColor(e){
     e.preventDefault;
@@ -105,13 +121,18 @@ class Game {
     }
     var pickedColor = $(e.target).data("color");
     this.moves += 1;
-    $("#move-display").text(`Moves: ${this.moves}`);
-    // var starting = $(".cell").first().data("pos");
+    this.setStartingCounters(this.level);
+    if (this.moves > this.maxMoves) {
+      this.loseMessage();
+    }
+
     if (!this.called.includes('0,0')) {
       this.called.push('0,0')
     }
     this.getAllPos('0,0', pickedColor)
     this.called = [];
+    window.clearInterval(this.interval);
+    $(".color-choice").removeClass("color-choice-selected")
   }
 
   getAllPos(s_pos, pickedColor){
@@ -128,6 +149,9 @@ class Game {
       }
     })
     this.colorOne(s_pos,pickedColor)
+
+
+    // this.Level.checkForWin();
     this.isWon();
   }
 
@@ -136,6 +160,19 @@ class Game {
     $(cell).css("background-color", this.colors[pickedColor])
     $(cell).data("color", pickedColor);
     this.colorHash[pos] = pickedColor
+  }
+
+  gjMsg(lvl){
+    const messages = ["Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!",
+    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!",
+    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!"];
+    $("#message").text(messages[lvl]).fadeOut(1000)
   }
 
 }
