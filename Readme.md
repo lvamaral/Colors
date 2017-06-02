@@ -30,8 +30,8 @@ There were two main parts to the project: the underlying aesthetics, and the cor
 
 The first step was constructing a grid that made sense for the current screen size; based on available height, the game determined how many rows and columns it should have. Thus, the game takes up the whole screen in any device size, and each cell is roughly a square (with a slightly larger width than its height).
 
-![demo](docs/iphone_colors.PNG)
-Game on an Iphone screen. 
+<img src="docs/iphone_colors.PNG" alt="DEMO" width="375" height="667">
+Game on an Iphone screen.
 
 Each round has a randomly generated color palette, and those were made using an <a href="https://coolors.co/" target="_blank">online color palette generator</a>.
 
