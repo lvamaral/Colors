@@ -33,6 +33,7 @@ The first step was constructing a grid that made sense for the current screen si
 <img src="docs/iphone_colors.PNG" alt="DEMO" width="375" height="667">
 Game on an Iphone screen.
 
+
 Each round has a randomly generated color palette, and those were made using an <a href="https://coolors.co/" target="_blank">online color palette generator</a>.
 
 The core functionality consisted of the function that took care of converting same color adjacent squares. This was achieved using recursion, and keeping track of what had already been checked for color conversion.
