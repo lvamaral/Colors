@@ -224,15 +224,17 @@ i:hover {
 }
 
 #tutorial {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   color: white;
   font-size: 20px;
   width: 400px;
   height: 550px;
   background-color: black;
   padding: 40px 30px;
+}
+
+.close {
+  text-align: right
+  float: right;
 }
 
 /*@media only screen
