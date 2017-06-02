@@ -29,7 +29,10 @@ class Game {
 
   selectStarting(){
     $(".tooltiptext").css("visibility", "visible");
-    this.interval = window.setInterval(function(){$(".color-choice").toggleClass("color-choice-selected")}, 750);
+    this.interval = window.setInterval(function(){
+      $(".color-choice").toggleClass("color-choice-selected");
+      $("#star").toggle();
+    }, 750);
   }
 
   endTut(){
@@ -121,10 +124,11 @@ class Game {
     if (!this.called.includes('0,0')) {
       this.called.push('0,0')
     }
-    this.getAllPos('0,0', pickedColor)
+    this.getAllPos('0,0', pickedColor);
     this.called = [];
     window.clearInterval(this.interval);
-    $(".color-choice").removeClass("color-choice-selected")
+    $(".color-choice").removeClass("color-choice-selected");
+    $("#star").hide();
   }
 
   getAllPos(s_pos, pickedColor){

@@ -41,6 +41,8 @@ class View {
       }
       page_grid.append(row)
     }
+
+    $(".cell").first().append($('<h2><i class="fa fa-star" id="star" aria-hidden="true"></i></h2>'))
     this.assignColors(grid);
     this.makeFooter();
   }

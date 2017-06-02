@@ -176,6 +176,8 @@ class View {
       }
       page_grid.append(row)
     }
+
+    $(".cell").first().append($('<h2><i class="fa fa-star" id="star" aria-hidden="true"></i></h2>'))
     this.assignColors(grid);
     this.makeFooter();
   }
@@ -250,7 +252,10 @@ class Game {
 
   selectStarting(){
     $(".tooltiptext").css("visibility", "visible");
-    this.interval = window.setInterval(function(){$(".color-choice").toggleClass("color-choice-selected")}, 750);
+    this.interval = window.setInterval(function(){
+      $(".color-choice").toggleClass("color-choice-selected");
+      $("#star").toggle();
+    }, 750);
   }
 
   endTut(){
@@ -342,10 +347,11 @@ class Game {
     if (!this.called.includes('0,0')) {
       this.called.push('0,0')
     }
-    this.getAllPos('0,0', pickedColor)
+    this.getAllPos('0,0', pickedColor);
     this.called = [];
     window.clearInterval(this.interval);
-    $(".color-choice").removeClass("color-choice-selected")
+    $(".color-choice").removeClass("color-choice-selected");
+    $("#star").hide();
   }
 
   getAllPos(s_pos, pickedColor){
@@ -447,6 +453,7 @@ class Level {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__view__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__view___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__view__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__game__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__colors__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__level__ = __webpack_require__(3);

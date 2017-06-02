@@ -105,7 +105,14 @@ header h1 {
 
 .cell {
   flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
 }
+
 
 .selected {
   box-shadow: 2px 2px 2px yellow;
@@ -138,6 +145,14 @@ header h1 {
   color: white;
   text-shadow: 2px 2px 4px #000000;
   z-index: 12;
+}
+
+#star {
+  color: lightyellow;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 60px;
+  z-index: 12;
+  display: none;
 }
 
 #info:hover {
@@ -227,7 +242,7 @@ i:hover {
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
  #tutorial {
- 
+
    width: 70%;
    left: 12%;
  }
