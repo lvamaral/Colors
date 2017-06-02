@@ -244,7 +244,6 @@ class Game {
     } else {
       this.gjMsg(this.level);
     }
-    console.log(this);
     this.setStartingCounters(this.level);
     this.clickControls();
   }
@@ -297,7 +296,6 @@ class Game {
     this.called = [];
     this.colorHash = {};
     this.level += 1;
-    console.log(this.level);
     this.view = null;
     this.moves = 0;
     delete this.view;
