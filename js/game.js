@@ -33,6 +33,7 @@ class Game {
       $(".color-choice").toggleClass("color-choice-selected");
       $("#star").toggle();
     }, 750);
+    setTimeout(function(){$("#info").trigger("click"); }, 1000);
   }
 
   endTut(){
@@ -95,9 +96,9 @@ class Game {
   }
 
   tutorialModal(){
-    $("#modal-tutorial").show();
+    $("#modal-tutorial").css("visibility", "visible");
     $("#modal-tutorial").click(() => {
-      $("#modal-tutorial").hide();
+      $("#modal-tutorial").css("visibility", "hidden");
     })
   }
 

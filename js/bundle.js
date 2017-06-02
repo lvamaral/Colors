@@ -256,6 +256,7 @@ class Game {
       $(".color-choice").toggleClass("color-choice-selected");
       $("#star").toggle();
     }, 750);
+    setTimeout(function(){$("#info").trigger("click"); }, 1000);
   }
 
   endTut(){
@@ -318,9 +319,9 @@ class Game {
   }
 
   tutorialModal(){
-    $("#modal-tutorial").show();
+    $("#modal-tutorial").css("visibility", "visible");
     $("#modal-tutorial").click(() => {
-      $("#modal-tutorial").hide();
+      $("#modal-tutorial").css("visibility", "hidden");
     })
   }
 
@@ -453,7 +454,6 @@ class Level {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__view__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__view___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__view__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__game__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__colors__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__level__ = __webpack_require__(3);
