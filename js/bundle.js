@@ -456,14 +456,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 $( () => {
-  localStorage.removeItem("level")
-  console.log(localStorage.getItem("level"));
-  if (localStorage.getItem("level") != null) {
-    new __WEBPACK_IMPORTED_MODULE_3__level__["a" /* default */](localStorage.getItem("level"))
-  } else {
     new __WEBPACK_IMPORTED_MODULE_3__level__["a" /* default */](1)
-  }
-
 });
 
 
