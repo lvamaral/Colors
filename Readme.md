@@ -2,6 +2,8 @@
 
 Colors is a game based on the 2011 Blackberry game "Pixelated Plus". It consists of a randomly generated grid of squares in different colors. The player starts with the top-left square, and chooses a color to change it to. All the adjacent squares of the same color get changed to the selected color. The objective of the game is to get the entire screen to have only one color in the least amount of moves possible.
 
+<a href="https://lvamaral.github.io/Colors/" target="_blank">Check it out!</a>
+
 ![demo](docs/fullsample.gif)
 
 ### Design and Implementation
