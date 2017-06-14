@@ -38,7 +38,27 @@ Each round has a randomly generated color palette, and those were made using an 
 
 The core functionality consisted of the function that took care of converting same color adjacent squares. This was achieved using recursion, and keeping track of what had already been checked for color conversion.
 
-<img src="docs/codesnippetcolor.png" alt="DEMO" width="600" height="300">
+```javascript
+getAllPos(s_pos, pickedColor){
+  let temp = s_pos.split(",").map(el => parseInt(el));
+  let potential = [];
+  potential.push([temp[0]-1, temp[1]].join());
+  potential.push([temp[0], temp[1]+1].join());
+  potential.push([temp[0], temp[1]-1].join());
+  potential.push([temp[0]+1, temp[1]].join());
+  Object.keys(this.colorHash).forEach( (pos) => {
+    if (potential.includes(pos)
+    && this.colorHash[pos] === this.colorHash[s_pos]
+    && !this.called.includes(pos)) {
+      this.called.push(pos)
+      this.getAllPos(pos, pickedColor)
+    };
+  });
+  this.colorOne(s_pos,pickedColor);
+  this.isWon();
+}
+``` 
+<!-- <img src="docs/codesnippetcolor.png" alt="DEMO" width="600" height="300"> -->
 Code snipped showing the recursive coloring function.
 
 
