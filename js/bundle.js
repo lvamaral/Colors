@@ -250,6 +250,16 @@ class Game {
     }
     this.setStartingCounters(this.level);
     this.clickControls();
+    this.isMobile();
+  }
+
+  isMobile(){
+    var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+    console.log(isMobile);
+    if (/Mobi/.test(navigator.userAgent)) {
+      console.log("here");
+        $(".fa-mouse-pointer").removeClass("fa-mouse-pointer").addClass("fa-hand-pointer-o")
+    }
   }
 
   selectStarting(){
