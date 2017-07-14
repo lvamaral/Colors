@@ -334,9 +334,16 @@ i:hover {
       display: none;
     }
 
-    .fa-github {
+    .fa-github, .fa-info-circle {
       display: none;
     }
+
+     #lose-message {
+       display: fixed;
+       top: 50%;
+       left: 0%;
+       width: 90%;
+     }
 
     .counters {
       font-size: 38px;
