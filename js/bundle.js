@@ -236,17 +236,16 @@ class Game {
     this.colorHash = this.constructHash();
     this.called = [];
     this.maxMoves = this.level + 10;
+    this.lastColor = "";
 
 
     if (this.level === 1) {
       this.selectStarting()
     } else if (this.level === 2) {
       this.endTut();
-      console.log("lvl 2");
       this.gjMsg(this.level);
 
     } else {
-      console.log(this.level);
       this.gjMsg(this.level);
     }
     this.setStartingCounters(this.level);
@@ -342,20 +341,23 @@ class Game {
       $(".tooltiptext").hide();
     }
     var pickedColor = $(e.target).data("color");
-    this.moves += 1;
-    this.setStartingCounters(this.level);
-    if (this.moves > this.maxMoves) {
-      this.loseMessage();
-    }
+    if (this.lastColor !== pickedColor) {
+      this.lastColor = pickedColor
+      this.moves += 1;
+      this.setStartingCounters(this.level);
+      if (this.moves > this.maxMoves) {
+        this.loseMessage();
+      }
 
-    if (!this.called.includes('0,0')) {
-      this.called.push('0,0')
+      if (!this.called.includes('0,0')) {
+        this.called.push('0,0')
+      }
+      this.getAllPos('0,0', pickedColor);
+      this.called = [];
+      window.clearInterval(this.interval);
+      $(".color-choice").removeClass("color-choice-selected");
+      $("#star").hide();
     }
-    this.getAllPos('0,0', pickedColor);
-    this.called = [];
-    window.clearInterval(this.interval);
-    $(".color-choice").removeClass("color-choice-selected");
-    $("#star").hide();
   }
 
   getAllPos(s_pos, pickedColor){
