@@ -19,8 +19,11 @@ class Game {
       this.selectStarting()
     } else if (this.level === 2) {
       this.endTut();
+      console.log("lvl 2");
       this.gjMsg(this.level);
+
     } else {
+      console.log(this.level);
       this.gjMsg(this.level);
     }
     this.setStartingCounters(this.level);
@@ -168,7 +171,9 @@ class Game {
     "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
     "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
     "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!"];
-    $("#message").text(messages[lvl]).fadeOut(1000)
+    let msg = $("#message").text(messages[lvl-1])
+    msg.fadeIn(100)
+    msg.fadeOut(1000)
   }
 
 }
