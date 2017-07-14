@@ -255,9 +255,9 @@ class Game {
 
   isMobile(){
     var isMobile = window.matchMedia("only screen and (max-width: 760px)");
-    console.log(isMobile);
+
     if (/Mobi/.test(navigator.userAgent)) {
-      console.log("here");
+
         $(".fa-mouse-pointer").removeClass("fa-mouse-pointer").addClass("fa-hand-pointer-o")
     }
   }
@@ -269,8 +269,12 @@ class Game {
       $("#star").toggle();
     }, 750);
     if (!sessionStorage.tutorial) {
-      console.log(sessionStorage.tutorial);
-      setTimeout(function(){$("#info").trigger("click"); }, 1000);
+      if (isMobile) {
+        $("#info").trigger("click");
+      } else {
+        setTimeout(function(){$("#info").trigger("click"); }, 1000);
+      }
+
     }
 
   }
