@@ -269,8 +269,8 @@ class Game {
       $("#star").toggle();
     }, 750);
     if (!sessionStorage.tutorial) {
-      if (isMobile) {
-        $("#info").trigger("click");
+      if (this.isMobile) {
+        setTimeout(function(){$("#info").trigger("click"); }, 100);
       } else {
         setTimeout(function(){$("#info").trigger("click"); }, 1000);
       }
@@ -491,13 +491,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 $( () => {
     new __WEBPACK_IMPORTED_MODULE_3__level__["a" /* default */](1)
 });
-
-$('body').bind('touchend', function(e) {
-  e.preventDefault();
-  // Add your code here.
-  $(this).click();
-  // This line still calls the standard click event, in case the user needs to interact with the element that is being clicked on, but still avoids zooming in cases of double clicking.
-})
 
 
 /***/ }),

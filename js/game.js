@@ -46,8 +46,8 @@ class Game {
       $("#star").toggle();
     }, 750);
     if (!sessionStorage.tutorial) {
-      if (isMobile) {
-        $("#info").trigger("click");
+      if (this.isMobile) {
+        setTimeout(function(){$("#info").trigger("click"); }, 100);
       } else {
         setTimeout(function(){$("#info").trigger("click"); }, 1000);
       }
