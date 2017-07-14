@@ -258,7 +258,11 @@ class Game {
       $(".color-choice").toggleClass("color-choice-selected");
       $("#star").toggle();
     }, 750);
-    setTimeout(function(){$("#info").trigger("click"); }, 1000);
+    if (!sessionStorage.tutorial) {
+      console.log(sessionStorage.tutorial);
+      setTimeout(function(){$("#info").trigger("click"); }, 1000);
+    }
+
   }
 
   endTut(){
@@ -323,6 +327,7 @@ class Game {
   tutorialModal(){
     $("#modal-tutorial").css("visibility", "visible");
     $("#modal-tutorial").click(() => {
+      sessionStorage.setItem("tutorial", true);
       $("#modal-tutorial").css("visibility", "hidden");
     })
   }
