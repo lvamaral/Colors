@@ -12,7 +12,7 @@ class Game {
     this.moves = 0;
     this.colorHash = this.constructHash();
     this.called = [];
-    this.maxMoves = this.level + 10;
+    this.maxMoves = this.level + 8;
     this.lastColor = "";
 
 
