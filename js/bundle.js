@@ -240,7 +240,7 @@ class Game {
 
 
     if (this.level === 1) {
-      this.selectStarting()
+      this.selectStarting();
     } else if (this.level === 2) {
       this.endTut();
       this.gjMsg(this.level);
@@ -248,16 +248,17 @@ class Game {
     } else {
       this.gjMsg(this.level);
     }
+    this.isMobile();
     this.setStartingCounters(this.level);
     this.clickControls();
-    this.isMobile();
+
   }
 
   isMobile(){
     var isMobile = window.matchMedia("only screen and (max-width: 760px)");
 
     if (/Mobi/.test(navigator.userAgent)) {
-
+        this.maxMoves -= 4;
         $(".fa-mouse-pointer").removeClass("fa-mouse-pointer").addClass("fa-hand-pointer-o")
     }
   }

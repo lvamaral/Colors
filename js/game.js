@@ -12,12 +12,12 @@ class Game {
     this.moves = 0;
     this.colorHash = this.constructHash();
     this.called = [];
-    this.maxMoves = this.level + 8;
+    this.maxMoves = this.level + 10;
     this.lastColor = "";
 
 
     if (this.level === 1) {
-      this.selectStarting()
+      this.selectStarting();
     } else if (this.level === 2) {
       this.endTut();
       this.gjMsg(this.level);
@@ -25,16 +25,17 @@ class Game {
     } else {
       this.gjMsg(this.level);
     }
+    this.isMobile();
     this.setStartingCounters(this.level);
     this.clickControls();
-    this.isMobile();
+
   }
 
   isMobile(){
     var isMobile = window.matchMedia("only screen and (max-width: 760px)");
 
     if (/Mobi/.test(navigator.userAgent)) {
-
+        this.maxMoves -= 4;
         $(".fa-mouse-pointer").removeClass("fa-mouse-pointer").addClass("fa-hand-pointer-o")
     }
   }
@@ -184,14 +185,20 @@ class Game {
 
   gjMsg(lvl){
     const messages = ["Good job!", "Great!", "Nice!", "Wow!", "You da best!",
-    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
-    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY S***!", "OK THIS ONE'S ROUGH!",
     "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
-    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
-    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "DO YOU HAVE NO LIFE? JK GJ!",
     "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
-    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
-    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!"];
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY S***!", "OK THIS ONE'S ROUGH!",
+    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "DO YOU HAVE NO LIFE? JK GJ!",
+    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY S***!", "OK THIS ONE'S ROUGH!",
+    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "DO YOU HAVE NO LIFE? JK GJ!"];
     let msg = $("#message").text(messages[lvl-1])
     msg.fadeIn(100)
     msg.fadeOut(1000)
