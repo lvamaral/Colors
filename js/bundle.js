@@ -271,7 +271,7 @@ class Game {
     }, 750);
     if (!sessionStorage.tutorial) {
       if (this.isMobile) {
-        setTimeout(function(){$("#info").trigger("click"); }, 100);
+        setTimeout(function(){$("#info").trigger("click"); }, 50);
       } else {
         setTimeout(function(){$("#info").trigger("click"); }, 1000);
       }
@@ -408,14 +408,20 @@ class Game {
 
   gjMsg(lvl){
     const messages = ["Good job!", "Great!", "Nice!", "Wow!", "You da best!",
-    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
-    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY S***!", "OK THIS ONE'S ROUGH!",
     "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
-    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
-    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "DO YOU HAVE NO LIFE? JK GJ!",
     "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
-    "Rockstart!", "You're Killing It!", "OMG Nice!", "How Are You Still Playing?? Jk GJ!",
-    "WOWWWWW!", "DAYUM!", "HOLY SH*T!", "OK THIS ONE's ROUGH!"];
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY S***!", "OK THIS ONE'S ROUGH!",
+    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "DO YOU HAVE NO LIFE? JK GJ!",
+    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "GJ!",
+    "WOWWWWW!", "DAYUM!", "HOLY S***!", "OK THIS ONE'S ROUGH!",
+    "Good job!", "Great!", "Nice!", "Wow!", "You da best!",
+    "Rockstart!", "You're Killing It!", "OMG Nice!", "DO YOU HAVE NO LIFE? JK GJ!"];
     let msg = $("#message").text(messages[lvl-1])
     msg.fadeIn(100)
     msg.fadeOut(1000)

@@ -48,7 +48,7 @@ class Game {
     }, 750);
     if (!sessionStorage.tutorial) {
       if (this.isMobile) {
-        setTimeout(function(){$("#info").trigger("click"); }, 100);
+        setTimeout(function(){$("#info").trigger("click"); }, 50);
       } else {
         setTimeout(function(){$("#info").trigger("click"); }, 1000);
       }
