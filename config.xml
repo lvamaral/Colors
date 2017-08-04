@@ -5,13 +5,16 @@
     versionCode = "10"
     version     = "1.0.0" >
 
-    <platform name="ios">
-  		<preference name="DisallowOverscroll" value="true"/>
-  		<preference name="DisallowUnderscroll" value="true"/>
-  	</platform>
-
+    <!-- all platforms -->
+    <preference name="phonegap-version" value="cli-6.5.0" />
     <icon src="icon.png" />
     <splash src="splash.png" />
+
+   <!-- ios -->
+    <platform name="ios">
+      <preference name="DisallowOverscroll" value="true"/>
+      <preference name="DisallowUnderscroll" value="true"/>
+    </platform>
 <!-- versionCode is optional and Android only -->
 
   <name>Colors</name>
