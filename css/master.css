@@ -289,10 +289,22 @@ i:hover {
   height: 100%;
   z-index: 20;
   display: none;
-  /*display: block;*/
   position: absolute;
   background-color: rgba(0,0,0,0.8);
   cursor: pointer;
+  /*display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;*/
+}
+
+.lose-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #lose-message {
@@ -304,11 +316,12 @@ i:hover {
   font-size: 20px;
   height: 130px;
   background-color: black;
-  position: absolute;
+  width: 100%;
+  /*position: absolute;
   top: 45%;
   left: 40%;
-  transform: translateY(-50%);
-  padding: 20px 50px;
+  transform: translateY(-50%);*/
+  padding: 30px 50px;
 }
 #modal-lose:hover #lose-message{
   color: #E83151;

@@ -52,9 +52,7 @@ class Game {
       } else {
         setTimeout(function(){$("#info").trigger("click"); }, 1000);
       }
-
     }
-
   }
 
   endTut(){
@@ -66,10 +64,9 @@ class Game {
     $("#moves").text(`${this.moves}`);
     $("#max-moves").text(`${this.maxMoves}`);
     if (this.moves >= this.maxMoves-3) {
-
-      $("#danger-display").addClass("danger")
+      $("#danger-display").addClass("danger");
     } else {
-      $("#danger-display").removeClass("danger")
+      $("#danger-display").removeClass("danger");
     }
   }
 
@@ -103,17 +100,17 @@ class Game {
     this.view = null;
     this.moves = 0;
     delete this.view;
-    this.Level.game = null
-    delete this.Level.game
-    this.Level = null
-    delete this.Level
-    $(".color-choice").unbind("click")
-    new Level(this.level)
+    this.Level.game = null;
+    delete this.Level.game;
+    this.Level = null;
+    delete this.Level;
+    $(".color-choice").unbind("click");
+    new Level(this.level);
   }
 
   clickControls(){
-    $(".color-choice").click(this.pickColor.bind(this))
-    $("#info").click(() => this.tutorialModal())
+    $(".color-choice").click(this.pickColor.bind(this));
+    $("#info").click(() => this.tutorialModal());
   }
 
   tutorialModal(){
@@ -130,7 +127,6 @@ class Game {
       location.reload();
     })
   }
-
 
   pickColor(e){
     e.preventDefault;
