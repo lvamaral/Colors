@@ -6,12 +6,8 @@
     version     = "1.0.0" >
 
     <platform name="ios">
-  		<allow-intent href="itms:*"/>
-  		<allow-intent href="itms-apps:*"/>
-  		<preference name="enabled" value="true"/>
   		<preference name="DisallowOverscroll" value="true"/>
   		<preference name="DisallowUnderscroll" value="true"/>
-
   	</platform>
 
     <icon src="icon.png" />
