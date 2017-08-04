@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.lucasvamaral.colors"
+    versionCode = "10"
+    version     = "1.0.0" >
+
+    <platform name="ios">
+  		<allow-intent href="itms:*"/>
+  		<allow-intent href="itms-apps:*"/>
+  		<preference name="enabled" value="true"/>
+  		<preference name="DisallowOverscroll" value="true"/>
+  		<preference name="DisallowUnderscroll" value="true"/>
+
+  	</platform>
+
+    <icon src="icon.png" />
+    <splash src="splash.png" />
+<!-- versionCode is optional and Android only -->
+
+  <name>Colors</name>
+
+  <description>
+      A relaxing puzzle game.
+  </description>
+
+  <author href="http://www.lucasvamaral.com/" email="lucas.v.amaral@gmail.com">
+      Lucas Amaral
+  </author>
+
+  <content src="https://lvamaral.github.io/Colors/"/>
+	<preference name="Orientation" value="portrait"/>
+	<preference name="Fullscreen" value="true"/>
+
+</widget>
