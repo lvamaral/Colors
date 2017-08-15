@@ -10,12 +10,15 @@
     <preference name="fullscreen" value="true" />
     <icon src="icon.png" />
     <splash src="splash.png" />
+    <content src="https://lvamaral.github.io/Colors/"/>
+    <preference name="Orientation" value="portrait"/>
+    <preference name="Fullscreen" value="true"/>
 
    <!-- ios -->
     <platform name="ios">
       <preference name="DisallowOverscroll" value="true"/>
       <preference name="DisallowUnderscroll" value="true"/>
-      <preference name="signing-key" title="Colors"  />
+      <preference name="signing-key" title="Colors" />
     </platform>
 
     <!-- iPhone 6 / 6+ -->
@@ -50,8 +53,6 @@
       Lucas Amaral
   </author>
 
-  <content src="https://lvamaral.github.io/Colors/"/>
-	<preference name="Orientation" value="portrait"/>
-	<preference name="Fullscreen" value="true"/>
+
 
 </widget>
