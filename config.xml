@@ -8,8 +8,7 @@
     <!-- all platforms -->
     <preference name="phonegap-version" value="cli-6.5.0" />
     <preference name="fullscreen" value="true" />
-    <icon src="icon.png" />
-    <splash src="splash.png" />
+
     <content src="https://lvamaral.github.io/Colors/"/>
     <preference name="Orientation" value="portrait"/>
     <preference name="Fullscreen" value="true"/>
@@ -21,16 +20,18 @@
       <preference name="signing-key" title="Colors" />
     </platform>
 
-<!-- iPhone 6 / 6+ -->
-<icon src="icon-60@3x.png" platform="ios" width="180" height="180" />
+    <icon src="icon.png" />
+    <splash src="splash.png" />
+    <!-- iPhone 6 / 6+ -->
+    <icon src="icon/icon-60@3x.png" platform="ios" width="180" height="180" />
 
-<!-- iPhone / iPod Touch  -->
-<icon src="icon-60.png" platform="ios" width="60" height="60" />
-<icon src="icon-60@2x.png" platform="ios" width="120" height="120" />
+    <!-- iPhone / iPod Touch  -->
+    <icon src="icon/icon-60.png" platform="ios" width="60" height="60" />
+    <icon src="icon/icon-60@2x.png" platform="ios" width="120" height="120" />
 
-<!-- iPad -->
-<icon src="icon-76.png" platform="ios" width="76" height="76" />
-<icon src="icon-76@2x.png" platform="ios" width="152" height="152" />
+    <!-- iPad -->
+    <icon src="icon/icon-76.png" platform="ios" width="76" height="76" />
+    <icon src="icon/icon-76@2x.png" platform="ios" width="152" height="152" />
 
 <!-- versionCode is optional and Android only -->
 
