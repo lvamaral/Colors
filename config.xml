@@ -9,7 +9,7 @@
     <preference name="phonegap-version" value="cli-6.5.0" />
     <preference name="fullscreen" value="true" />
 
-    <content src="https://lvamaral.github.io/Colors/"/>
+    <!-- <content src="https://lvamaral.github.io/Colors/"/> -->
     <preference name="Orientation" value="portrait"/>
     <preference name="Fullscreen" value="true"/>
 
