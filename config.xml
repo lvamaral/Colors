@@ -21,7 +21,7 @@
       <preference name="signing-key" title="Colors" />
     </platform>
 
-    <!-- iPhone 6 / 6+ -->
+<!-- iPhone 6 / 6+ -->
 <icon src="icon/Icon-60@3x.png" platform="ios" width="180" height="180" />
 
 <!-- iPhone / iPod Touch  -->
