@@ -36,7 +36,8 @@ class Game {
 
     if (/Mobi/.test(navigator.userAgent)) {
         this.maxMoves -= 4;
-        $(".fa-mouse-pointer").removeClass("fa-mouse-pointer").addClass("fa-hand-pointer-o")
+        $(".fa-mouse-pointer").removeClass("fa-mouse-pointer").addClass("fa-hand-pointer-o");
+        $("#colors-title").hide();
     }
   }
 
