@@ -22,9 +22,10 @@
 
     <icon src="icon.png" />
     <splash src="splash.png" />
+
     <!-- iPhone 6 / 6+ -->
     <icon src="icon/icon-60@3x.png" platform="ios" width="180" height="180" />
-
+    <splash src="Default-568h@2x~iphone.png" platform="ios" width="320" height="480" />
     <!-- iPhone / iPod Touch  -->
     <icon src="icon/icon-60.png" platform="ios" width="60" height="60" />
     <icon src="icon/icon-60@2x.png" platform="ios" width="120" height="120" />

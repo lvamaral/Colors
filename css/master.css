@@ -264,17 +264,6 @@ i:hover {
   color: white;
 }
 
-/*@media only screen
-  and (min-device-width: 320px)
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
- #tutorial {
-
-   width: 70%;
-   left: 12%;
- }
-}*/
-
 .close {
   display: inline;
   text-align: right;
@@ -314,10 +303,6 @@ i:hover {
   position: absolute;
   background-color: rgba(0,0,0,0.8);
   cursor: pointer;
-  /*display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;*/
 }
 
 .lose-wrapper {
@@ -339,11 +324,7 @@ i:hover {
   height: 130px;
   background-color: black;
   width: 100%;
-  /*position: absolute;
-  top: 45%;
-  left: 40%;
-  transform: translateY(-50%);*/
-  padding: 30px 50px;
+  padding: 50px 50px;
 }
 #modal-lose:hover #lose-message{
   color: #E83151;
