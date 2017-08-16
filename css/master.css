@@ -385,6 +385,21 @@ i:hover {
       font-size: 38px;
     }
 
+    header h1 {
+      font-size: 30px;
+    }
+
+    #move-display, #level {
+      font-size: 15px;
+    }
+    #header .counters {
+      padding-top: 25px;
+    }
+
+    #tutorial {
+      font-size: 1.2em;
+    }
+
 }
 
 };
