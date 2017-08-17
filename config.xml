@@ -43,6 +43,7 @@
     <icon src="icon-40.png" platform="ios" width="40" height="40" />
     <icon src="icon-40@2x.png" platform="ios" width="80" height="80" />
     <icon src="icon-40@3x.png" platform="ios" width="120" height="120" />
+    <icon src="icon-83.5@2x.png" platform="ios" width="167" height="167" />
 
     <!-- SPLASH  -->
 
