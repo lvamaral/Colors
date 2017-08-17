@@ -3,7 +3,7 @@
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "com.lucasvamaral.colors"
     versionCode = "10"
-    version     = "1.0.5" >
+    version     = "1.0.6" >
 
     <!-- all platforms -->
     <preference name="phonegap-version" value="cli-6.5.0" />
